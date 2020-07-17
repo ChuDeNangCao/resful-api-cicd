@@ -8,7 +8,7 @@ const bcrypt = require('bcryptjs')
 const nodemailer = require('nodemailer')
 const { isTrustlyOTP } = require('../middlewares/auth')
 
-router.post('/login', async (req, res) => {
+router.post('accounts/login', async (req, res) => {
   try {
     const { email, password } = req.body
     if (!email || !password) {
