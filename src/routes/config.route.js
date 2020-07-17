@@ -12,7 +12,7 @@ const randAccount = (email) => ({
 const userData = [
   {
     type: 'normal',
-    email: 'xuanghjem@gmail.com',
+    email: '123xuanghjem@gmail.com',
     phone: '+84985002876',
     name: 'Nguyễn Xuân Nghiêm',
     password: '$2a$10$Sd8St7kVtmCM4RO397i5c.PdcBjlJnYWixPOkKb2BwmC5lCVi3KZm',
