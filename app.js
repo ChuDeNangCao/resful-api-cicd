@@ -19,8 +19,8 @@ app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 app.use(cookieParser())
 
-let info = {name: "Sacombank", code: 999}
-let userLogin = {name: "nhutthanh", pass: "1234"}
+let info = {name: "Sacombank", code: 9999}
+let userLogin = {name: "nhutthanh", pass: "123456"}
 // Some route
 app.get('/', (req, res) => {
     res.send('Sacombank Internet Banking API')
@@ -51,18 +51,6 @@ app.get('/login', (req, res) => {
         res.send(200, {name: user.name})
     }
     else {
-        res.send(401)
-    }
-
-});
-
-app.post('/changePass', (req, res) => {
-    user = req.body
-    if(user.name == userLogin.name && user.pass == userLogin.pass)
-    {
-        userLogin.pass = user.newPass;
-        res.send(200, userLogin)
-    }else{
         res.send(401)
     }
 
