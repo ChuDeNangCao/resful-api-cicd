@@ -197,7 +197,7 @@ router.post('/refreshToken', async (req, res) => {
   try {
     const { accessToken, refreshToken } = req.body
     if (!accessToken || !refreshToken) {
-      return res.json({
+      return res.status(400).json({
         success: false,
         message: 'accessToken, refreshToken are required!'
       })
@@ -210,7 +210,7 @@ router.post('/refreshToken', async (req, res) => {
       },
       async (err, payload) => {
         if (err) {
-          return res.json({
+          return res.status(403).json({
             success: false,
             message: err
           })
@@ -218,13 +218,13 @@ router.post('/refreshToken', async (req, res) => {
         const { userId } = payload
         const user = await User.findById(userId)
         if (!user || !user.isEnabled) {
-          return res.json({
+          return res.status(403).json({
             success: false,
             message: 'this account not found or was blocked!'
           })
         }
         if (user.refreshToken !== refreshToken) {
-          return res.json({
+          return res.status(400).json({
             success: false,
             message: 'refreshToken is incorrect!'
           })
