@@ -1,6 +1,5 @@
 const request = require('supertest')
 const app = require('../app.js')
-
 describe('GET /', function () {
     it('home route', function (done) {
         request(app).get('/').expect('Sacombank Internet Banking API').end((err, res) => {
@@ -9,6 +8,7 @@ describe('GET /', function () {
         })
     })
 })
+
 
 describe('GET /', function () {
     it('Check API', function (done) {
@@ -61,3 +61,7 @@ describe('POST /', function() {
             }, done);
     });
 });
+
+require('./login/index')
+require('./refresh-token/index')
+
