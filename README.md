@@ -8,6 +8,6 @@
 | STT      | Họ và tên              | MSSV    |
 | -------- | -----------------------|-------- |
 | 1        | Nguyễn Xuân Nghiêm     | 1612427 |
-| 2        | xxxxxxxxxxxxxxx        | xxxxxxx |
+| 2        | Phạm Nhựt Thanh        | 1612893 |
 | 3        | xxxxxxxxxxxxxxx        | xxxxxxx |
 
