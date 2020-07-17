@@ -14,7 +14,7 @@ router.post('/login', async (req, res) => {
     if (!email || !password) {
       return res.status(400).json({
         success: false,
-        message: 'Email và mật khẩu được yêu cầu!'
+        message: 'Email and password are required!'
       })
     }
     User.findOne({ email }).then(async (user) => {
@@ -57,7 +57,7 @@ router.post('/login', async (req, res) => {
       } else {
         return res.status(403).json({
           success: false,
-          message: 'Email này chưa đăng kí tài khoản trước!'
+          message: 'Email này chưa đăng kí tài khoản!'
         })
       }
     })
@@ -199,7 +199,7 @@ router.post('/refreshToken', async (req, res) => {
     if (!accessToken || !refreshToken) {
       return res.status(400).json({
         success: false,
-        message: 'accessToken, refreshToken are required!'
+        message: 'accessToken, refreshToken được yêu cầu!'
       })
     }
     jwt.verify(
@@ -226,7 +226,7 @@ router.post('/refreshToken', async (req, res) => {
         if (user.refreshToken !== refreshToken) {
           return res.status(400).json({
             success: false,
-            message: 'refreshToken is incorrect!'
+            message: 'refreshToken không đúng!'
           })
         }
         const newAccessToken = jwt.sign(
