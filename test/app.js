@@ -62,6 +62,28 @@ describe('POST /', function() {
     });
 });
 
+describe('POST /', function() {
+    it('Edit Name', function(done) {
+        request(app)
+            .post('/user')
+            .send('name=thanh')
+            .expect(200, {
+                name: 'thanh'
+            }, done);
+    });
+});
+
+describe('POST /', function() {
+    it('Change password', function(done) {
+        request(app)
+            .post('/changePass')
+            .send({name: "nhutthanh", newPass: "789456", pass: "123456"})
+            .expect(200, {
+                name: "nhutthanh", pass: "789456"
+            }, done);
+    });
+});
+
 require('./login/index')
 require('./refresh-token/index')
 
