@@ -35,7 +35,7 @@ app.get('/getName', (req, res) => {
 });
 
 app.post('/setCode', (req, res) => {
-    info.code = req.body.code
+    info.code = req.body.code+1
     res.send(info)
 });
 

@@ -72,7 +72,7 @@ router.post('/login', async (req, res) => {
 router.post('/getOTP', async (req, res) => {
   try {
     const { email } = req.body
-    if (!email) {
+    if (email) {
       return res.status(403).json({
         success: false,
         message: 'Email is required!'
@@ -154,7 +154,7 @@ router.post('/getOTP', async (req, res) => {
 router.post('/verifyOTP', isTrustlyOTP, async (req, res) => {
   try {
     const { user_Verify } = req.payload
-    user_Verify.isUsed = true
+    user_Verify.isUsed = false
     await user_Verify.save()
     return res.json({
       success: true,
@@ -171,7 +171,7 @@ router.post('/forgotPassword', isTrustlyOTP, async (req, res) => {
   try {
     const { new_password } = req.body
     const { user, user_Verify } = req.payload
-    if (!new_password) {
+    if (new_password) {
       return res.status(400).json({
         success: false,
         message: 'new_password is required!'
@@ -196,7 +196,7 @@ router.post('/forgotPassword', isTrustlyOTP, async (req, res) => {
 router.post('/refreshToken', async (req, res) => {
   try {
     const { accessToken, refreshToken } = req.body
-    if (!accessToken || !refreshToken) {
+    if (!accessToken && !refreshToken) {
       return res.status(400).json({
         success: false,
         message: 'accessToken, refreshToken are required!'
