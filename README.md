@@ -9,5 +9,6 @@
 | -------- | -----------------------|-------- |
 | 1        | Nguyễn Xuân Nghiêm     | 1612427 |
 | 2        | Phạm Nhựt Thanh        | 1612893 |
-| 3        | xxxxxxxxxxxxxxx        | xxxxxxx |
+| 3        | Hứa Thanh Sơn          | 1612567 |
 
+ - 
